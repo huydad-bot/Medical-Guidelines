@@ -17,7 +17,7 @@
 
     /* ── Header ── */
     .header {
-      background: #1a3a6b;
+      background: linear-gradient(135deg,#16345f,#285a9a);
       padding: 28px 32px;
       text-align: center;
     }
@@ -46,15 +46,15 @@
     /* ── Card ── */
     .card {
       background: #fff;
-      border-radius: 12px;
+      border-radius: 18px;
       border: 1.5px solid #e2e6ec;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
       transition: box-shadow .2s, transform .2s;
     }
     .card:hover {
       box-shadow: 0 6px 20px rgba(0,0,0,.11);
-      transform: translateY(-2px);
+      transform: translateY(-4px);
     }
 
     .card-header {
@@ -64,8 +64,8 @@
       gap: 10px;
     }
     .card-icon {
-      width: 34px;
-      height: 34px;
+      width: 42px;
+      height: 42px;
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -202,6 +202,15 @@
         <span class="link-dot"></span> 분화 갑상선암
         <span class="link-arrow">↗</span>
       </a>
+
+      <a class="link-item" href="#" target="_blank">
+        <span class="link-dot"></span> 임신/출산 갑상선 질환 (KTA)
+        <span class="link-arrow">↗</span>
+      </a>
+      <a class="link-item" href="#" target="_blank">
+        <span class="link-dot"></span> 임신/출산 갑상선 질환 (ATA)
+        <span class="link-arrow">↗</span>
+      </a>
     </div>
   </div>
 
@@ -219,15 +228,15 @@
     </div>
   </div>
 
-  <!-- ── 만성신질환 ── -->
+  <!-- ── 뇌하수체 ── -->
   <div class="card theme-purple">
     <div class="card-header">
       <div class="card-icon">🫘</div>
-      <div class="card-title">만성신질환</div>
+      <div class="card-title">뇌하수체</div>
     </div>
     <div class="link-list">
-      <a class="link-item" href="https://huydad-bot.github.io/KDIGO-2024-CKD/" target="_blank">
-        <span class="link-dot"></span> CKD 가이드라인 (2024 KDIGO)
+      <a class="link-item" href="#" target="_blank">
+        <span class="link-dot"></span> 뇌하수체 질환
         <span class="link-arrow">↗</span>
       </a>
     </div>
@@ -247,15 +256,20 @@
     </div>
   </div>
 
-  <!-- ── 지질 / 심혈관 ── -->
+  <!-- ── 지질/심혈관/신장 ── -->
   <div class="card theme-red">
     <div class="card-header">
       <div class="card-icon">🫀</div>
-      <div class="card-title">지질 / 심혈관</div>
+      <div class="card-title">지질/심혈관/신장</div>
     </div>
     <div class="link-list">
       <a class="link-item" href="https://huydad-bot.github.io/dyslipidemia-2026/" target="_blank">
         <span class="link-dot"></span> 이상지질혈증 진료지침 (2026 ACC/AHA)
+        <span class="link-arrow">↗</span>
+      </a>
+
+      <a class="link-item" href="https://huydad-bot.github.io/KDIGO-2024-CKD/" target="_blank">
+        <span class="link-dot"></span> CKD 가이드라인 (2024 KDIGO)
         <span class="link-arrow">↗</span>
       </a>
     </div>
@@ -264,7 +278,7 @@
   <!-- ── 부신 ── -->
   <div class="card theme-orange">
     <div class="card-header">
-      <div class="card-icon">🫁</div>
+      <div class="card-icon">⚡</div>
       <div class="card-title">부신</div>
     </div>
     <div class="link-list">
