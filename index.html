@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Guidelines</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f0f2f5;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: #1a3a6b;
+      padding: 28px 32px;
+      text-align: center;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .header p {
+      color: rgba(255,255,255,.65);
+      font-size: .85rem;
+      margin-top: 6px;
+    }
+
+    /* ── Grid ── */
+    .grid-wrap {
+      max-width: 1000px;
+      margin: 36px auto 60px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      border: 1.5px solid #e2e6ec;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .card:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,.11);
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1d23;
+    }
+    .card-title.empty {
+      color: #aab0ba;
+      font-style: italic;
+    }
+
+    /* ── Link list ── */
+    .link-list {
+      padding: 4px 0 12px;
+      border-top: 1px solid #f0f2f5;
+    }
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 18px;
+      font-size: .86rem;
+      color: #2c5fa0;
+      text-decoration: none;
+      transition: background .15s;
+      border-bottom: 1px solid #f5f6f8;
+    }
+    .link-item:last-child { border-bottom: none; }
+    .link-item:hover { background: #eef3ff; }
+    .link-item .link-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2c5fa0;
+      flex-shrink: 0;
+    }
+    .link-item .link-arrow {
+      margin-left: auto;
+      font-size: .75rem;
+      opacity: .5;
+    }
+
+    /* Empty slot */
+    .empty-slot {
+      padding: 16px 18px;
+      font-size: .83rem;
+      color: #c0c8d4;
+      border-top: 1px dashed #e2e6ec;
+      text-align: center;
+    }
+
+    /* Card color themes */
+    .theme-blue   .card-header { background: #eef3ff; }
+    .theme-blue   .card-icon   { background: #dce8ff; color: #1a4fa0; }
+    .theme-green  .card-header { background: #edfaf5; }
+    .theme-green  .card-icon   { background: #d4f0ea; color: #0d7c66; }
+    .theme-red    .card-header { background: #fef0f0; }
+    .theme-red    .card-icon   { background: #fde0e0; color: #c0392b; }
+    .theme-orange .card-header { background: #fff5ec; }
+    .theme-orange .card-icon   { background: #ffe8cc; color: #b85c00; }
+    .theme-purple .card-header { background: #f4f0fe; }
+    .theme-purple .card-icon   { background: #ece6fd; color: #6b3fa0; }
+    .theme-teal   .card-header { background: #eaf7fb; }
+    .theme-teal   .card-icon   { background: #d0eef5; color: #0a7c8a; }
+    .theme-gray   .card-header { background: #f5f6f8; }
+    .theme-gray   .card-icon   { background: #e8eaee; color: #7a8290; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: .78rem;
+      color: #aab0ba;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Medical Guidelines</h1>
+  <p>내분비대사내과 임상 가이드라인 포털</p>
+</div>
+
+<div class="grid-wrap">
+
+  <!-- ── 당뇨병 ── -->
+  <div class="card theme-blue">
+    <div class="card-header">
+      <div class="card-icon">💉</div>
+      <div class="card-title">당뇨병</div>
+    </div>
+    <div class="link-list">
+      <a class="link-item" href="#" target="_blank">
+        <span class="link-dot"></span> 2026 ADA Guideline
+        <span class="link-arrow">↗</span>
+      </a>
+      <a class="link-item" href="#" target="_blank">
+        <span class="link-dot"></span> 당뇨병 약물 치료
+        <span class="link-arrow">↗</span>
+      </a>
+      <a class="link-item" href="#" target="_blank">
+        <span class="link-dot"></span> 인슐린 용량 계산
+        <span class="link-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── 갑상선 ── -->
+  <div class="card theme-teal">
+    <div class="card-header">
+      <div class="card-icon">🦋</div>
+      <div class="card-title">갑상선</div>
+    </div>
+    <div class="link-list">
+      <a class="link-item" href="https://huydad-bot.github.io/endocrine-guidelines/diseases/hyperthyroidism.html" target="_blank">
+        <span class="link-dot"></span> 갑상선기능항진증
+        <span class="link-arrow">↗</span>
+      </a>
+      <a class="link-item" href="https://huydad-bot.github.io/endocrine-guidelines/diseases/hypothyroidism.html" target="_blank">
+        <span class="link-dot"></span> 갑상선기능저하증
+        <span class="link-arrow">↗</span>
+      </a>
+      <a class="link-item" href="https://huydad-bot.github.io/thyroid-nodule/" target="_blank">
+        <span class="link-dot"></span> 갑상선 결절
+        <span class="link-arrow">↗</span>
+      </a>
+      <a class="link-item" href="https://huydad-bot.github.io/thyroid-cancer/" target="_blank">
+        <span class="link-dot"></span> 분화 갑상선암
+        <span class="link-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── 고혈압 ── -->
+  <div class="card theme-red">
+    <div class="card-header">
+      <div class="card-icon">🩺</div>
+      <div class="card-title">고혈압</div>
+    </div>
+    <div class="link-list">
+      <a class="link-item" href="https://huydad-bot.github.io/Hypertension-2025/" target="_blank">
+        <span class="link-dot"></span> 고혈압 진료지침 (2025 ACC/AHA)
+        <span class="link-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── 만성신질환 ── -->
+  <div class="card theme-purple">
+    <div class="card-header">
+      <div class="card-icon">🫘</div>
+      <div class="card-title">만성신질환</div>
+    </div>
+    <div class="link-list">
+      <a class="link-item" href="https://huydad-bot.github.io/KDIGO-2024-CKD/" target="_blank">
+        <span class="link-dot"></span> CKD 가이드라인 (2024 KDIGO)
+        <span class="link-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── 골다공증 / 골대사 ── -->
+  <div class="card theme-orange">
+    <div class="card-header">
+      <div class="card-icon">🦴</div>
+      <div class="card-title">골다공증 / 골대사</div>
+    </div>
+    <div class="link-list">
+      <a class="link-item" href="#" target="_blank">
+        <span class="link-dot"></span> 골다공증 가이드라인
+        <span class="link-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── 지질 / 심혈관 ── -->
+  <div class="card theme-red">
+    <div class="card-header">
+      <div class="card-icon">🫀</div>
+      <div class="card-title">지질 / 심혈관</div>
+    </div>
+    <div class="link-list">
+      <a class="link-item" href="#" target="_blank">
+        <span class="link-dot"></span> 이상지질혈증 진료지침 (2026 ACC/AHA)
+        <span class="link-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── 부신 ── -->
+  <div class="card theme-orange">
+    <div class="card-header">
+      <div class="card-icon">🫁</div>
+      <div class="card-title">부신</div>
+    </div>
+    <div class="link-list">
+      <a class="link-item" href="https://huydad-bot.github.io/PPGL/" target="_blank">
+        <span class="link-dot"></span> PPGL
+        <span class="link-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── 비어있는 박스 2 ── -->
+  <div class="card theme-gray">
+    <div class="card-header">
+      <div class="card-icon">📋</div>
+      <div class="card-title empty">— 미정 —</div>
+    </div>
+    <div class="empty-slot">항목을 추가하세요</div>
+  </div>
+
+  <!-- ── 비어있는 박스 3 ── -->
+  <div class="card theme-gray">
+    <div class="card-header">
+      <div class="card-icon">📋</div>
+      <div class="card-title empty">— 미정 —</div>
+    </div>
+    <div class="empty-slot">항목을 추가하세요</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  ⚠️ 본 자료는 내부 임상 교육 및 참고 목적의 요약본입니다. 실제 진료는 최신 원문 가이드라인과 임상적 판단에 근거하여야 합니다.
+</div>
+
+</body>
+</html>
