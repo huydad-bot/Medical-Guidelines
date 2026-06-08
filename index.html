@@ -146,130 +146,12 @@
       font-size: .78rem;
       color: #aab0ba;
     }
-  /* ── Password Lock ── */
-  #lock-screen {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(135deg, #0f1f3d, #16345f, #1a4a7a);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    flex-direction: column;
-    gap: 0;
-  }
-  .lock-box {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 24px;
-    padding: 44px 40px 40px;
-    width: 340px;
-    text-align: center;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
-  }
-  .lock-icon {
-    font-size: 2.6rem;
-    margin-bottom: 10px;
-    display: block;
-  }
-  .lock-title {
-    color: #fff;
-    font-size: 1.15rem;
-    font-weight: 700;
-    letter-spacing: .04em;
-    margin-bottom: 4px;
-  }
-  .lock-sub {
-    color: rgba(255,255,255,0.45);
-    font-size: .8rem;
-    margin-bottom: 28px;
-  }
-  .lock-input {
-    width: 100%;
-    padding: 13px 16px;
-    border-radius: 10px;
-    border: 1.5px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.08);
-    color: #fff;
-    font-size: 1.2rem;
-    letter-spacing: .3em;
-    text-align: center;
-    font-family: 'Noto Sans KR', sans-serif;
-    outline: none;
-    transition: border-color .2s;
-    margin-bottom: 14px;
-  }
-  .lock-input::placeholder { color: rgba(255,255,255,0.25); letter-spacing: .1em; }
-  .lock-input:focus { border-color: rgba(100,160,255,0.7); }
-  .lock-btn {
-    width: 100%;
-    padding: 13px;
-    border-radius: 10px;
-    border: none;
-    background: linear-gradient(135deg, #285a9a, #1a4fa0);
-    color: #fff;
-    font-size: .95rem;
-    font-weight: 600;
-    font-family: 'Noto Sans KR', sans-serif;
-    cursor: pointer;
-    transition: opacity .2s, transform .1s;
-    letter-spacing: .03em;
-  }
-  .lock-btn:hover { opacity: .88; }
-  .lock-btn:active { transform: scale(.98); }
-  .lock-error {
-    color: #ff7f7f;
-    font-size: .8rem;
-    margin-top: 10px;
-    min-height: 18px;
-    transition: opacity .2s;
-  }
-  #main-content { display: none; }
+
   </style>
 </head>
 <body>
 
-<!-- ── Lock Screen ── -->
-<div id="lock-screen">
-  <div class="lock-box">
-    <span class="lock-icon">🔒</span>
-    <div class="lock-title">Medical Guidelines</div>
-    <div class="lock-sub">내분비대사내과 임상 가이드라인 포털</div>
-    <input
-      class="lock-input"
-      id="pw-input"
-      type="password"
-      placeholder="비밀번호 입력"
-      maxlength="20"
-      autocomplete="off"
-      onkeydown="if(event.key==='Enter') checkPw()"
-    />
-    <button class="lock-btn" onclick="checkPw()">입장하기</button>
-    <div class="lock-error" id="pw-error"></div>
-  </div>
-</div>
-
-<script>
-  function checkPw() {
-    const val = document.getElementById('pw-input').value;
-    const err = document.getElementById('pw-error');
-    if (val === '7124') {
-      document.getElementById('lock-screen').style.display = 'none';
-      document.getElementById('main-content').style.display = 'block';
-    } else {
-      err.textContent = '비밀번호가 올바르지 않습니다.';
-      document.getElementById('pw-input').value = '';
-      document.getElementById('pw-input').focus();
-      setTimeout(() => { err.textContent = ''; }, 2500);
-    }
-  }
-  window.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('pw-input').focus();
-  });
-</script>
-
-<div id="main-content">
+<div id="main-content" style="display:block">
 <div class="header">
   <h1>Medical Guidelines</h1>
   <p>내분비대사내과 임상 가이드라인 포털</p>
@@ -357,6 +239,10 @@
         <span class="link-dot"></span> Hyponatremia
         <span class="link-arrow">↗</span>
       </a>
+      <a class="link-item" href="https://huydad-bot.github.io/Acromegaly/" target="_blank">
+        <span class="link-dot"></span> Acromegaly consensus
+        <span class="link-arrow">↗</span>
+      </a>
     </div>
   </div>
 
@@ -369,6 +255,10 @@
     <div class="link-list">
       <a class="link-item" href="https://huydad-bot.github.io/osteoporosis/" target="_blank">
         <span class="link-dot"></span> 골다공증 가이드라인
+        <span class="link-arrow">↗</span>
+      </a>
+      <a class="link-item" href="https://huydad-bot.github.io/NOGG-2024-osteoporosis/" target="_blank">
+        <span class="link-dot"></span> 2024 NOGG 골다공증 가이드라인
         <span class="link-arrow">↗</span>
       </a>
     </div>
