@@ -159,48 +159,7 @@
 </head>
 <body>
 
-<!-- ── Password overlay ── -->
-<div id="pw-overlay" style="
-  position:fixed;inset:0;background:#f0f2f5;
-  display:flex;align-items:center;justify-content:center;
-  z-index:9999;font-family:'Noto Sans KR',sans-serif;">
-  <div style="background:#fff;border-radius:18px;padding:40px 36px;
-    box-shadow:0 8px 32px rgba(0,0,0,.12);text-align:center;width:320px;">
-    <div style="font-size:2rem;margin-bottom:12px">🔒</div>
-    <div style="font-size:1.1rem;font-weight:700;color:#1a1d23;margin-bottom:6px">Guidelines of Endocrine &amp; Metabolism</div>
-    <div style="font-size:.82rem;color:#8a90a0;margin-bottom:24px">비밀번호를 입력하세요</div>
-    <input id="pw-input" type="password" placeholder="비밀번호"
-      style="width:100%;padding:10px 14px;border:1.5px solid #d0d7de;border-radius:10px;
-        font-size:.95rem;outline:none;text-align:center;letter-spacing:.2em;margin-bottom:10px;"
-      onkeydown="if(event.key==='Enter')checkPw()"
-      onfocus="this.style.borderColor='#285a9a'"
-      onblur="this.style.borderColor='#d0d7de'">
-    <div id="pw-error" style="font-size:.78rem;color:#c0392b;min-height:18px;margin-bottom:8px"></div>
-    <button onclick="checkPw()" style="
-      width:100%;padding:10px;background:linear-gradient(135deg,#16345f,#285a9a);
-      color:#fff;border:none;border-radius:10px;font-size:.95rem;font-weight:600;
-      cursor:pointer;letter-spacing:.04em;">확인</button>
-  </div>
-</div>
-
-<script>
-  function checkPw() {
-    const val = document.getElementById('pw-input').value;
-    if (val === '7124') {
-      document.getElementById('pw-overlay').style.display = 'none';
-      document.getElementById('main-content').style.display = 'block';
-    } else {
-      const err = document.getElementById('pw-error');
-      err.textContent = '비밀번호가 올바르지 않습니다.';
-      document.getElementById('pw-input').value = '';
-      document.getElementById('pw-input').focus();
-      setTimeout(() => { err.textContent = ''; }, 2000);
-    }
-  }
-  window.addEventListener('load', () => document.getElementById('pw-input').focus());
-</script>
-
-<div id="main-content" style="display:none">
+<div id="main-content">
 <div class="header">
   <h1>Guidelines of Endocrine &amp; Metabolism</h1>
   <p>내분비대사내과 임상 가이드라인 포털</p>
@@ -308,13 +267,28 @@
         <span class="link-dot"></span> 다발성 내분비 선종 (MEN-1)
         <span class="link-arrow">↗</span>
       </a>
+      <a class="link-item" href="https://huydad-bot.github.io/PHPT/" target="_blank">
+        <span class="link-dot"></span> 원발성 부갑상선기능항진증
+        <span class="link-arrow">↗</span>
+      </a>
     </div>
   </div>
 
   <!-- ── 뇌하수체 ── -->
   <div class="card theme-purple">
     <div class="card-header">
-      <div class="card-icon">🫘</div>
+      <div class="card-icon">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- pituitary stalk (infundibulum) -->
+          <rect x="11.5" y="1" width="3" height="7" rx="1.5" fill="#6b3fa0" opacity="0.7"/>
+          <!-- pituitary gland body: oval, slightly wider than tall -->
+          <ellipse cx="13" cy="18" rx="7" ry="5.5" fill="#6b3fa0"/>
+          <!-- anterior/posterior lobe division line -->
+          <line x1="13" y1="12.5" x2="13" y2="23.5" stroke="#ece6fd" stroke-width="1.2" opacity="0.7"/>
+          <!-- subtle highlight -->
+          <ellipse cx="10.5" cy="15.5" rx="2.5" ry="1.5" fill="white" opacity="0.18"/>
+        </svg>
+      </div>
       <div class="card-title">뇌하수체</div>
     </div>
     <div class="link-list">
@@ -384,7 +358,17 @@
   <!-- ── 부신 ── -->
   <div class="card theme-orange">
     <div class="card-header">
-      <div class="card-icon">⚡</div>
+      <div class="card-icon">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- kidney body -->
+          <path d="M13 23 C7 23 4 19.5 4 15.5 C4 11 7 8 10 8 C11.5 8 12.5 9 13 10 C13.5 9 14.5 8 16 8 C19 8 22 11 22 15.5 C22 19.5 19 23 13 23Z" fill="#b85c00" opacity="0.25"/>
+          <path d="M13 22 C7.5 22 5 18.8 5 15.5 C5 11.5 7.8 9 10.2 9 C11.4 9 12.3 9.8 13 10.8 C13.7 9.8 14.6 9 15.8 9 C18.2 9 21 11.5 21 15.5 C21 18.8 18.5 22 13 22Z" fill="#b85c00" opacity="0.5"/>
+          <!-- adrenal gland: triangular hat on top of kidney -->
+          <path d="M8.5 9.5 C8.5 6 10.5 3 13 3 C15.5 3 17.5 6 17.5 9.5 C17.5 11 16 12 13 12 C10 12 8.5 11 8.5 9.5Z" fill="#b85c00"/>
+          <!-- adrenal cortex highlight -->
+          <path d="M10 9 C10 7 11.2 5.2 13 5.2 C14.8 5.2 16 7 16 9 C16 10 15 10.8 13 10.8 C11 10.8 10 10 10 9Z" fill="#e07820" opacity="0.5"/>
+        </svg>
+      </div>
       <div class="card-title">부신</div>
     </div>
     <div class="link-list">
