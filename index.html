@@ -19,141 +19,258 @@
 
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background: #f0f2f5;
+      background: #eef0f5;
       min-height: 100vh;
     }
 
     /* ── Header ── */
     .header {
-      background: linear-gradient(135deg,#16345f,#285a9a);
-      padding: 28px 32px;
+      background: transparent;
+      padding: 36px 32px 24px;
       text-align: center;
     }
     .header h1 {
-      color: #fff;
-      font-size: 1.9rem;
+      color: #1a2d50;
+      font-size: 1.85rem;
       font-weight: 700;
-      letter-spacing: .04em;
+      letter-spacing: .03em;
     }
     .header p {
-      color: rgba(255,255,255,.65);
-      font-size: .85rem;
-      margin-top: 6px;
+      color: #6b7a99;
+      font-size: .84rem;
+      margin-top: 7px;
     }
 
     /* ── Grid ── */
     .grid-wrap {
-      max-width: 1000px;
+      max-width: 1040px;
       margin: 36px auto 60px;
       padding: 0 24px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 22px;
     }
 
-    /* ── Card ── */
+    /* ── Card base ── */
     .card {
       background: #fff;
-      border-radius: 18px;
-      border: 1.5px solid #e2e6ec;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,.08);
-      transition: box-shadow .2s, transform .2s;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07), 0 6px 24px rgba(0,0,0,.05);
+      transition: box-shadow .22s, transform .22s;
+      position: relative;
+      /* Left accent bar via border-left */
+      border-left: 5px solid transparent;
     }
     .card:hover {
-      box-shadow: 0 6px 20px rgba(0,0,0,.11);
-      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,.13);
+      transform: translateY(-5px);
     }
 
+    /* ── Card header ── */
     .card-header {
-      padding: 14px 18px;
+      padding: 15px 18px 13px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 11px;
+      border-bottom: 1px solid rgba(0,0,0,.06);
     }
     .card-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 8px;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       flex-shrink: 0;
     }
+    .card-meta {
+      flex: 1;
+    }
     .card-title {
-      font-size: 1rem;
+      font-size: .98rem;
       font-weight: 700;
       color: #1a1d23;
+      line-height: 1.3;
     }
-    .card-title.empty {
-      color: #aab0ba;
-      font-style: italic;
+    .card-count {
+      font-size: .72rem;
+      font-weight: 500;
+      margin-top: 2px;
+      opacity: .65;
     }
 
     /* ── Link list ── */
     .link-list {
-      padding: 4px 0 12px;
-      border-top: 1px solid #f0f2f5;
+      padding: 4px 0 8px;
     }
     .link-item {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 9px 18px;
-      font-size: .86rem;
-      color: #2c5fa0;
+      gap: 9px;
+      padding: 8px 16px 8px 14px;
+      font-size: .84rem;
       text-decoration: none;
-      transition: background .15s;
-      border-bottom: 1px solid #f5f6f8;
+      transition: background .14s;
+      border-bottom: 1px solid #f4f5f8;
+      position: relative;
     }
     .link-item:last-child { border-bottom: none; }
-    .link-item:hover { background: #eef3ff; }
     .link-item .link-dot {
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
-      background: #2c5fa0;
       flex-shrink: 0;
     }
+    .link-item .link-text {
+      flex: 1;
+      line-height: 1.4;
+    }
     .link-item .link-arrow {
-      margin-left: auto;
-      font-size: .75rem;
-      opacity: .5;
+      font-size: .72rem;
+      opacity: .4;
+      flex-shrink: 0;
     }
 
-    /* Empty slot */
-    .empty-slot {
-      padding: 16px 18px;
-      font-size: .83rem;
-      color: #c0c8d4;
-      border-top: 1px dashed #e2e6ec;
-      text-align: center;
+    /* ── Theme: Blue (당뇨병) ── */
+    .theme-blue {
+      border-left-color: #2563eb;
     }
+    .theme-blue .card-header {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    }
+    .theme-blue .card-icon {
+      background: #2563eb;
+      color: #fff;
+    }
+    .theme-blue .card-count { color: #2563eb; }
+    .theme-blue .link-item { color: #1d4ed8; }
+    .theme-blue .link-dot  { background: #2563eb; }
+    .theme-blue .link-item:hover { background: #eff6ff; }
 
-    /* Card color themes */
-    .theme-blue   .card-header { background: #eef3ff; }
-    .theme-blue   .card-icon   { background: #dce8ff; color: #1a4fa0; }
-    .theme-green  .card-header { background: #edfaf5; }
-    .theme-green  .card-icon   { background: #d4f0ea; color: #0d7c66; }
-    .theme-red    .card-header { background: #fef0f0; }
-    .theme-red    .card-icon   { background: #fde0e0; color: #c0392b; }
-    .theme-orange .card-header { background: #fff5ec; }
-    .theme-orange .card-icon   { background: #ffe8cc; color: #b85c00; }
-    .theme-purple .card-header { background: #f4f0fe; }
-    .theme-purple .card-icon   { background: #ece6fd; color: #6b3fa0; }
-    .theme-teal   .card-header { background: #eaf7fb; }
-    .theme-teal   .card-icon   { background: #d0eef5; color: #0a7c8a; }
-    .theme-gray   .card-header { background: #f5f6f8; }
-    .theme-gray   .card-icon   { background: #e8eaee; color: #7a8290; }
+    /* ── Theme: Teal (갑상선) ── */
+    .theme-teal {
+      border-left-color: #0891b2;
+    }
+    .theme-teal .card-header {
+      background: linear-gradient(135deg, #ecfeff, #cffafe);
+    }
+    .theme-teal .card-icon {
+      background: #0891b2;
+      color: #fff;
+    }
+    .theme-teal .card-count { color: #0891b2; }
+    .theme-teal .link-item { color: #0e7490; }
+    .theme-teal .link-dot  { background: #0891b2; }
+    .theme-teal .link-item:hover { background: #ecfeff; }
+
+    /* ── Theme: Teal-dark (갑상선결절/암) — 두 번째 teal 카드 구분 ── */
+    .theme-teal-dark {
+      border-left-color: #0f766e;
+    }
+    .theme-teal-dark .card-header {
+      background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
+    }
+    .theme-teal-dark .card-icon {
+      background: #0f766e;
+      color: #fff;
+    }
+    .theme-teal-dark .card-count { color: #0f766e; }
+    .theme-teal-dark .link-item { color: #115e59; }
+    .theme-teal-dark .link-dot  { background: #0f766e; }
+    .theme-teal-dark .link-item:hover { background: #f0fdfa; }
+
+    /* ── Theme: Orange (부신) ── */
+    .theme-orange {
+      border-left-color: #ea580c;
+    }
+    .theme-orange .card-header {
+      background: linear-gradient(135deg, #fff7ed, #fed7aa);
+    }
+    .theme-orange .card-icon {
+      background: #ea580c;
+      color: #fff;
+    }
+    .theme-orange .card-count { color: #ea580c; }
+    .theme-orange .link-item { color: #c2410c; }
+    .theme-orange .link-dot  { background: #ea580c; }
+    .theme-orange .link-item:hover { background: #fff7ed; }
+
+    /* ── Theme: Purple (뇌하수체) ── */
+    .theme-purple {
+      border-left-color: #7c3aed;
+    }
+    .theme-purple .card-header {
+      background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+    }
+    .theme-purple .card-icon {
+      background: #7c3aed;
+      color: #fff;
+    }
+    .theme-purple .card-count { color: #7c3aed; }
+    .theme-purple .link-item { color: #6d28d9; }
+    .theme-purple .link-dot  { background: #7c3aed; }
+    .theme-purple .link-item:hover { background: #f5f3ff; }
+
+    /* ── Theme: Red (지질/심혈관) ── */
+    .theme-red {
+      border-left-color: #dc2626;
+    }
+    .theme-red .card-header {
+      background: linear-gradient(135deg, #fef2f2, #fecaca);
+    }
+    .theme-red .card-icon {
+      background: #dc2626;
+      color: #fff;
+    }
+    .theme-red .card-count { color: #dc2626; }
+    .theme-red .link-item { color: #b91c1c; }
+    .theme-red .link-dot  { background: #dc2626; }
+    .theme-red .link-item:hover { background: #fef2f2; }
+
+    /* ── Theme: Amber (골다공증) ── */
+    .theme-amber {
+      border-left-color: #d97706;
+    }
+    .theme-amber .card-header {
+      background: linear-gradient(135deg, #fffbeb, #fde68a);
+    }
+    .theme-amber .card-icon {
+      background: #d97706;
+      color: #fff;
+    }
+    .theme-amber .card-count { color: #d97706; }
+    .theme-amber .link-item { color: #b45309; }
+    .theme-amber .link-dot  { background: #d97706; }
+    .theme-amber .link-item:hover { background: #fffbeb; }
+
+    /* ── Theme: Green (기타) ── */
+    .theme-green {
+      border-left-color: #16a34a;
+    }
+    .theme-green .card-header {
+      background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    }
+    .theme-green .card-icon {
+      background: #16a34a;
+      color: #fff;
+    }
+    .theme-green .card-count { color: #16a34a; }
+    .theme-green .link-item { color: #15803d; }
+    .theme-green .link-dot  { background: #16a34a; }
+    .theme-green .link-item:hover { background: #f0fdf4; }
 
     /* Footer */
     .footer {
       text-align: center;
-      padding: 20px;
-      font-size: .78rem;
-      color: #aab0ba;
+      padding: 24px 20px 32px;
+      font-size: .77rem;
+      color: #9ca3af;
+      line-height: 1.7;
     }
+    .footer a { color: #9ca3af; text-decoration: none; }
+    .footer a:hover { color: #6b7280; }
 
   </style>
 </head>
@@ -171,27 +288,30 @@
   <div class="card theme-blue">
     <div class="card-header">
       <div class="card-icon">💉</div>
-      <div class="card-title">당뇨병</div>
+      <div class="card-meta">
+        <div class="card-title">당뇨병</div>
+        <div class="card-count">5 Guidelines</div>
+      </div>
     </div>
     <div class="link-list">
       <a class="link-item" href="https://huydad-bot.github.io/ADA-2026/" target="_blank">
-        <span class="link-dot"></span> 2026 ADA Guideline
+        <span class="link-dot"></span><span class="link-text">2026 ADA Guideline</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/2025-KDA/" target="_blank">
-        <span class="link-dot"></span> KDA 2025 가이드라인
+        <span class="link-dot"></span><span class="link-text">KDA 2025 가이드라인</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/DKA-HHS/" target="_blank">
-        <span class="link-dot"></span> DKA / HHS
+        <span class="link-dot"></span><span class="link-text">DKA / HHS</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/Hypoglycemia/" target="_blank">
-        <span class="link-dot"></span> 저혈당
+        <span class="link-dot"></span><span class="link-text">저혈당</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/DM-Labor-Birth/" target="_blank">
-        <span class="link-dot"></span> 분만 전/후 혈당관리
+        <span class="link-dot"></span><span class="link-text">분만 전/후 혈당관리</span>
         <span class="link-arrow">↗</span>
       </a>
     </div>
@@ -201,73 +321,79 @@
   <div class="card theme-teal">
     <div class="card-header">
       <div class="card-icon">🦋</div>
-      <div class="card-title">갑상선</div>
+      <div class="card-meta">
+        <div class="card-title">갑상선 기능</div>
+        <div class="card-count">7 Guidelines</div>
+      </div>
     </div>
     <div class="link-list">
       <a class="link-item" href="https://huydad-bot.github.io/Hyperthyroidism/" target="_blank">
-        <span class="link-dot"></span> 갑상선기능항진증
+        <span class="link-dot"></span><span class="link-text">갑상선기능항진증</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/Thyroid-Eye-disease/" target="_blank">
-        <span class="link-dot"></span> 갑상선 안병증
+        <span class="link-dot"></span><span class="link-text">갑상선 안병증</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/RAI-hyperthyroidism/" target="_blank">
-        <span class="link-dot"></span> 항진증-동위원소 치료
+        <span class="link-dot"></span><span class="link-text">항진증 동위원소 치료</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/Hypothyroidism/" target="_blank">
-        <span class="link-dot"></span> 갑상선기능저하증
+        <span class="link-dot"></span><span class="link-text">갑상선기능저하증</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/Subclinical-Hypothyroidism/" target="_blank">
-        <span class="link-dot"></span> 무증상갑상선기능저하증
+        <span class="link-dot"></span><span class="link-text">무증상 갑상선기능저하증</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/KTA-2023-Pregnancy/" target="_blank">
-        <span class="link-dot"></span> 임신/출산 갑상선 질환 (KTA)
+        <span class="link-dot"></span><span class="link-text">임신/출산 갑상선 질환 (KTA)</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/thyroid-pregnancy-2026/" target="_blank">
-        <span class="link-dot"></span> 임신/출산 갑상선 질환 (ATA)
+        <span class="link-dot"></span><span class="link-text">임신/출산 갑상선 질환 (ATA)</span>
         <span class="link-arrow">↗</span>
       </a>
     </div>
   </div>
 
   <!-- ── 갑상선결절/암/부갑상선 ── -->
-  <div class="card theme-teal">
+  <div class="card theme-teal-dark">
     <div class="card-header">
       <div class="card-icon">🔬</div>
-      <div class="card-title">갑상선결절/암/부갑상선</div>
+      <div class="card-meta">
+        <div class="card-title">갑상선결절 / 암 / 부갑상선</div>
+        <div class="card-count">7 Guidelines</div>
+      </div>
     </div>
     <div class="link-list">
       <a class="link-item" href="https://huydad-bot.github.io/KTA-Thyroid-nodule/" target="_blank">
-        <span class="link-dot"></span> 갑상선결절 (KTA)
+        <span class="link-dot"></span><span class="link-text">갑상선결절 (KTA)</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/KTA-Thyroid-cancer/" target="_blank">
-        <span class="link-dot"></span> 분화 갑상선암 (KTA)
+        <span class="link-dot"></span><span class="link-text">분화 갑상선암 (KTA)</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/thyroid-cancer-ATA/" target="_blank">
-        <span class="link-dot"></span> 분화 갑상선암 (ATA)
+        <span class="link-dot"></span><span class="link-text">분화 갑상선암 (ATA)</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/MTC/" target="_blank">
-        <span class="link-dot"></span> 갑상선 수질암 (ATA)
+        <span class="link-dot"></span><span class="link-text">갑상선 수질암 (ATA)</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/refractory-MTC/" target="_blank">
-        <span class="link-dot"></span> 불응성 갑상선 수질암
+        <span class="link-dot"></span><span class="link-text">불응성 갑상선 수질암</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/MEN-1/" target="_blank">
-        <span class="link-dot"></span> 다발성 내분비 선종 (MEN-1)
+        <span class="link-dot"></span><span class="link-text">다발성 내분비 선종 (MEN-1)</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/PHPT/" target="_blank">
-        <span class="link-dot"></span> 원발성 부갑상선기능항진증
+        <span class="link-dot"></span><span class="link-text">원발성 부갑상선기능항진증</span>
         <span class="link-arrow">↗</span>
       </a>
     </div>
@@ -278,44 +404,44 @@
     <div class="card-header">
       <div class="card-icon">
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- kidney body -->
-          <path d="M13 23 C7 23 4 19.5 4 15.5 C4 11 7 8 10 8 C11.5 8 12.5 9 13 10 C13.5 9 14.5 8 16 8 C19 8 22 11 22 15.5 C22 19.5 19 23 13 23Z" fill="#b85c00" opacity="0.25"/>
-          <path d="M13 22 C7.5 22 5 18.8 5 15.5 C5 11.5 7.8 9 10.2 9 C11.4 9 12.3 9.8 13 10.8 C13.7 9.8 14.6 9 15.8 9 C18.2 9 21 11.5 21 15.5 C21 18.8 18.5 22 13 22Z" fill="#b85c00" opacity="0.5"/>
-          <!-- adrenal gland: triangular hat on top of kidney -->
-          <path d="M8.5 9.5 C8.5 6 10.5 3 13 3 C15.5 3 17.5 6 17.5 9.5 C17.5 11 16 12 13 12 C10 12 8.5 11 8.5 9.5Z" fill="#b85c00"/>
-          <!-- adrenal cortex highlight -->
-          <path d="M10 9 C10 7 11.2 5.2 13 5.2 C14.8 5.2 16 7 16 9 C16 10 15 10.8 13 10.8 C11 10.8 10 10 10 9Z" fill="#e07820" opacity="0.5"/>
+          <path d="M13 23 C7 23 4 19.5 4 15.5 C4 11 7 8 10 8 C11.5 8 12.5 9 13 10 C13.5 9 14.5 8 16 8 C19 8 22 11 22 15.5 C22 19.5 19 23 13 23Z" fill="white" opacity="0.25"/>
+          <path d="M13 22 C7.5 22 5 18.8 5 15.5 C5 11.5 7.8 9 10.2 9 C11.4 9 12.3 9.8 13 10.8 C13.7 9.8 14.6 9 15.8 9 C18.2 9 21 11.5 21 15.5 C21 18.8 18.5 22 13 22Z" fill="white" opacity="0.55"/>
+          <path d="M8.5 9.5 C8.5 6 10.5 3 13 3 C15.5 3 17.5 6 17.5 9.5 C17.5 11 16 12 13 12 C10 12 8.5 11 8.5 9.5Z" fill="white"/>
+          <path d="M10 9 C10 7 11.2 5.2 13 5.2 C14.8 5.2 16 7 16 9 C16 10 15 10.8 13 10.8 C11 10.8 10 10 10 9Z" fill="white" opacity="0.4"/>
         </svg>
       </div>
-      <div class="card-title">부신</div>
+      <div class="card-meta">
+        <div class="card-title">부신</div>
+        <div class="card-count">7 Guidelines</div>
+      </div>
     </div>
     <div class="link-list">
       <a class="link-item" href="https://huydad-bot.github.io/PPGL/" target="_blank">
-        <span class="link-dot"></span> 갈색세포종/부신경절종(PPGL)
+        <span class="link-dot"></span><span class="link-text">갈색세포종 / 부신경절종 (PPGL)</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/adrenal-incidentaloma/" target="_blank">
-        <span class="link-dot"></span> 부신우연종
+        <span class="link-dot"></span><span class="link-text">부신우연종</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/Primary-aldosteronism/" target="_blank">
-        <span class="link-dot"></span> 원발성 알도스테론증
+        <span class="link-dot"></span><span class="link-text">원발성 알도스테론증</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/PAI/" target="_blank">
-        <span class="link-dot"></span> 원발성 부신기능부전
+        <span class="link-dot"></span><span class="link-text">원발성 부신기능부전</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/GC-adrenal-insufficiency/" target="_blank">
-        <span class="link-dot"></span> 이차성(스테로이드) 부신기능부전
+        <span class="link-dot"></span><span class="link-text">이차성(스테로이드) 부신기능부전</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/DX-Cushing/" target="_blank">
-        <span class="link-dot"></span> 쿠싱증후군 진단
+        <span class="link-dot"></span><span class="link-text">쿠싱증후군 진단</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/Tx-Cushing/" target="_blank">
-        <span class="link-dot"></span> 쿠싱증후군 치료
+        <span class="link-dot"></span><span class="link-text">쿠싱증후군 치료</span>
         <span class="link-arrow">↗</span>
       </a>
     </div>
@@ -326,33 +452,32 @@
     <div class="card-header">
       <div class="card-icon">
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- pituitary stalk (infundibulum) -->
-          <rect x="11.5" y="1" width="3" height="7" rx="1.5" fill="#6b3fa0" opacity="0.7"/>
-          <!-- pituitary gland body: oval, slightly wider than tall -->
-          <ellipse cx="13" cy="18" rx="7" ry="5.5" fill="#6b3fa0"/>
-          <!-- anterior/posterior lobe division line -->
-          <line x1="13" y1="12.5" x2="13" y2="23.5" stroke="#ece6fd" stroke-width="1.2" opacity="0.7"/>
-          <!-- subtle highlight -->
-          <ellipse cx="10.5" cy="15.5" rx="2.5" ry="1.5" fill="white" opacity="0.18"/>
+          <rect x="11.5" y="1" width="3" height="7" rx="1.5" fill="white" opacity="0.8"/>
+          <ellipse cx="13" cy="18" rx="7" ry="5.5" fill="white"/>
+          <line x1="13" y1="12.5" x2="13" y2="23.5" stroke="#7c3aed" stroke-width="1.2" opacity="0.5"/>
+          <ellipse cx="10.5" cy="15.5" rx="2.5" ry="1.5" fill="white" opacity="0.25"/>
         </svg>
       </div>
-      <div class="card-title">뇌하수체</div>
+      <div class="card-meta">
+        <div class="card-title">뇌하수체</div>
+        <div class="card-count">4 Guidelines</div>
+      </div>
     </div>
     <div class="link-list">
       <a class="link-item" href="https://huydad-bot.github.io/pituitary-incidentaloma/" target="_blank">
-        <span class="link-dot"></span> 뇌하수체 우연종
+        <span class="link-dot"></span><span class="link-text">뇌하수체 우연종</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/Hypopituitarism-HRT/" target="_blank">
-        <span class="link-dot"></span> 뇌하수체기능저하증 호르몬치료
+        <span class="link-dot"></span><span class="link-text">뇌하수체기능저하증 호르몬치료</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/Hyponatremia/" target="_blank">
-        <span class="link-dot"></span> 저나트륨혈증
+        <span class="link-dot"></span><span class="link-text">저나트륨혈증</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/Acromegaly/" target="_blank">
-        <span class="link-dot"></span> Acromegaly consensus
+        <span class="link-dot"></span><span class="link-text">Acromegaly consensus</span>
         <span class="link-arrow">↗</span>
       </a>
     </div>
@@ -362,41 +487,47 @@
   <div class="card theme-red">
     <div class="card-header">
       <div class="card-icon">🫀</div>
-      <div class="card-title">지질/심혈관/신장</div>
+      <div class="card-meta">
+        <div class="card-title">지질 / 심혈관 / 신장</div>
+        <div class="card-count">4 Guidelines</div>
+      </div>
     </div>
     <div class="link-list">
       <a class="link-item" href="https://huydad-bot.github.io/dyslipidemia-2026/" target="_blank">
-        <span class="link-dot"></span> 이상지질혈증 진료지침 (2026 ACC/AHA)
+        <span class="link-dot"></span><span class="link-text">이상지질혈증 진료지침 (2026 ACC/AHA)</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/Hypertension-2025/" target="_blank">
-        <span class="link-dot"></span> 고혈압 진료지침 (2025 ACC/AHA)
+        <span class="link-dot"></span><span class="link-text">고혈압 진료지침 (2025 ACC/AHA)</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/KDIGO-2024-CKD/" target="_blank">
-        <span class="link-dot"></span> CKD 가이드라인 (2024 KDIGO)
+        <span class="link-dot"></span><span class="link-text">CKD 가이드라인 (2024 KDIGO)</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/CKM-syndrome/" target="_blank">
-        <span class="link-dot"></span> CKM 증후군
+        <span class="link-dot"></span><span class="link-text">CKM 증후군</span>
         <span class="link-arrow">↗</span>
       </a>
     </div>
   </div>
 
   <!-- ── 골다공증 / 골대사 ── -->
-  <div class="card theme-orange">
+  <div class="card theme-amber">
     <div class="card-header">
       <div class="card-icon">🦴</div>
-      <div class="card-title">골다공증 / 골대사</div>
+      <div class="card-meta">
+        <div class="card-title">골다공증 / 골대사</div>
+        <div class="card-count">2 Guidelines</div>
+      </div>
     </div>
     <div class="link-list">
       <a class="link-item" href="https://huydad-bot.github.io/NOGG-2024-osteoporosis/" target="_blank">
-        <span class="link-dot"></span> 2024 NOGG 골다공증 가이드라인
+        <span class="link-dot"></span><span class="link-text">2024 NOGG 골다공증 가이드라인</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/osteoporosis/" target="_blank">
-        <span class="link-dot"></span> 골다공증 치료 (FRAX 기반)
+        <span class="link-dot"></span><span class="link-text">골다공증 치료 (FRAX 기반)</span>
         <span class="link-arrow">↗</span>
       </a>
     </div>
@@ -406,19 +537,22 @@
   <div class="card theme-green">
     <div class="card-header">
       <div class="card-icon">📂</div>
-      <div class="card-title">기타</div>
+      <div class="card-meta">
+        <div class="card-title">기타</div>
+        <div class="card-count">3 Guidelines</div>
+      </div>
     </div>
     <div class="link-list">
       <a class="link-item" href="https://huydad-bot.github.io/Clinical-Formulas/" target="_blank">
-        <span class="link-dot"></span> 진료용 공식집
+        <span class="link-dot"></span><span class="link-text">진료용 공식집</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/MASLD/" target="_blank">
-        <span class="link-dot"></span> MASLD 진료지침
+        <span class="link-dot"></span><span class="link-text">MASLD 진료지침</span>
         <span class="link-arrow">↗</span>
       </a>
       <a class="link-item" href="https://huydad-bot.github.io/obesity-2025/" target="_blank">
-        <span class="link-dot"></span> 비만 진료지침
+        <span class="link-dot"></span><span class="link-text">비만 진료지침</span>
         <span class="link-arrow">↗</span>
       </a>
     </div>
@@ -428,7 +562,7 @@
 
 <div class="footer">
   ⚠️ 본 자료는 내부 임상 교육 및 참고 목적의 요약본입니다. 실제 진료는 최신 원문 가이드라인과 임상적 판단에 근거하여야 합니다.<br>
-  <span style="margin-top:6px;display:inline-block">프로그램 관련 연락 : <a href="mailto:jugkim@knu.ac.kr" style="color:#aab0ba;text-decoration:none">jugkim@knu.ac.kr</a></span>
+  <span style="margin-top:6px;display:inline-block">프로그램 관련 연락 : <a href="mailto:jugkim@knu.ac.kr">jugkim@knu.ac.kr</a></span>
 </div>
 
 </div><!-- /main-content -->
